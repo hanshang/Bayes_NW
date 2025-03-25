@@ -19,6 +19,8 @@ Nonparametric density-on-density regression in Bayes Hilbert space
 
 9. handling_zero_forecast: procedure for handling density with a subregion of zeros
 
-10. French_COVID19_density: French departmental COVID19 hospitalization dataset
+10. d-on-d_simulation.html: R markdown file for simulation DGP
 
-11. US_LT_density: Age-specific life-table death counts in the United States
+11. French_COVID19_density: French departmental COVID19 hospitalization dataset
+
+12. US_LT_density: Age-specific life-table death counts in the United States
