@@ -1,24 +1,24 @@
 # Bayes_NW
 Nonparametric density-on-density regression in Bayes Hilbert space
 
-CoDa_NFR: centered log-ratio transformation + nonparametric functional regression for modeling and forecasting transformed data
+1. CoDa_NFR: centered log-ratio transformation + nonparametric functional regression for modeling and forecasting transformed data
 
-CoDa_PCA: centered log-ratio transformation + functional principal component analysis
+2. CoDa_PCA: centered log-ratio transformation + functional principal component analysis
 
-French_COVID19_density: French departmental COVID19 hospitalization dataset
+3. lqd_fun: log quantile density transformation of Petersen and Muller (2016)
 
-Horta_Ziegelmann_FPCA: Functional principal component analysis ignoring density-valued objects, perform normalization in the end
+4. Horta_Ziegelmann_FPCA: Functional principal component analysis ignoring density-valued objects, perform normalization in the end
 
-US_LT_density: Age-specific life-table death counts in the United States
+5. load_packages: load R packages
 
-auxiliary: auxiliary functions for implementing nonparametric function-on-function regression
+6. save_function: internal functions for saving R figures
 
-density_norm: density internal functions
+7. auxiliary: auxiliary functions for implementing nonparametric function-on-function regression
 
-handling_zero_forecast: procedure for handling density with a subregion of zeros
+8. density_norm: density internal functions
 
-load_packages: load R packages
+9. handling_zero_forecast: procedure for handling density with a subregion of zeros
 
-lqd_fun: log quantile density transformation of Petersen and Muller (2016)
+10. French_COVID19_density: French departmental COVID19 hospitalization dataset
 
-save_function: internal functions for saving R figures
+11. US_LT_density: Age-specific life-table death counts in the United States
