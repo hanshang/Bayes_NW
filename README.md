@@ -21,6 +21,6 @@ Nonparametric density-on-density regression in Bayes Hilbert space
 
 10. d-on-d_simulation.html: R markdown file for simulation DGP
 
-11. 
+11. Bovespa_returns_data: Bovespa return density forecasting, same data set has previously been analysed in Kokoszka et al. (2019, IJF)
 
 12. US_LT_density.R: Age-specific life-table death counts in the United States
