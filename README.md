@@ -21,6 +21,6 @@ Nonparametric density-on-density regression in Bayes Hilbert space
 
 10. d-on-d_simulation.html: R markdown file for simulation DGP
 
-11. French_COVID19_density.R: French departmental COVID19 hospitalization dataset
+11. 
 
 12. US_LT_density.R: Age-specific life-table death counts in the United States
