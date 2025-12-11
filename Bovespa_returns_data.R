@@ -132,7 +132,7 @@ result_Silverman_epan = foreach(iwk = 1:n_test) %dopar% Bovespa_ret_fun_CoDa_NFR
 Bovespa_CoDa_NFR_Silverman_epan = matrix(NA, 5001, n_test)
 for(ik in 1:n_test)
 {
-    Bovespa_CoDa_NFR_Silverman_epan[,ik]     = result_Silverman_epan[[ik]]
+    Bovespa_CoDa_NFR_Silverman_epan[,ik] = result_Silverman_epan[[ik]]
     print(ik); rm(ik)
 }  
 
@@ -142,7 +142,7 @@ for(ik in 1:n_test)
 
 # kernel = "epan"
 
-Bovespa_KLdiv_CoDa_NFR_Silverman_epan = Bovespa_KLdiv_CoDa_NFR_DPI_epan = matrix(NA, n_test, 2)
+Bovespa_KLdiv_CoDa_NFR_Silverman_epan = matrix(NA, n_test, 2)
 for(ik in 1:n_test)
 {
     ## Silverman
@@ -154,7 +154,7 @@ for(ik in 1:n_test)
     print(ik); rm(ik)
 }
 
-Bovespa_KLdiv_CoDa_NFR_Silverman_epan_summary     = round(sum(colMeans(Bovespa_KLdiv_CoDa_NFR_Silverman_epan)), 4)
+Bovespa_KLdiv_CoDa_NFR_Silverman_epan_summary = round(sum(colMeans(Bovespa_KLdiv_CoDa_NFR_Silverman_epan)), 4)
 
 # random walk
 
@@ -169,7 +169,7 @@ for(ik in 2:n_test)
     rm(Bovespa_rw_compar)
     print(ik); rm(ik)
 }
-
+                   
 round(colMeans(Bovespa_KLdiv_rw[2:n_test,]), 4) # 0.1912 0.1977
 Bovespa_KLdiv_rw_summary_epan = round(sum(colMeans(Bovespa_KLdiv_rw_epan[2:n_test,])), 4)
 
