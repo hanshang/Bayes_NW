@@ -32,3 +32,4 @@ Nonparametric density-on-density regression in Bayes Hilbert space
 3. source("CoDa_NFR.R")
 4. source("CoDa_PCA.R")
 5. load("Bovespa_CoDa_NFR.RData")
+6. ...
