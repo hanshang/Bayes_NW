@@ -170,7 +170,6 @@ for(ik in 2:n_test)
     print(ik); rm(ik)
 }
                    
-round(colMeans(Bovespa_KLdiv_rw[2:n_test,]), 4) # 0.1912 0.1977
 Bovespa_KLdiv_rw_summary_epan = round(sum(colMeans(Bovespa_KLdiv_rw_epan[2:n_test,])), 4)
 
 #####################
