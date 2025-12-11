@@ -102,7 +102,7 @@ Bovespa_CoDa_NFR <- function(data.list, band_choice = c("Silverman", "DPI"), ker
     radix = colSums(Y)[1]
     
     CoDa_NFR_den = CoDa_NFR(t(Y + 0.001))
-    Yhat.fix_den = (CoDa_NFR_den$d_x_t_star_fore * radix) - 0.001
+    Yhat.fix_den = (CoDa_NFR_den * radix) - 0.001
     
     Yhat.fix_den[Yhat.fix_den < 0] = 0
     Yhat.fix_den = Yhat.fix_den/(sum(Yhat.fix_den)*du)
