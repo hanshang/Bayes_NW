@@ -1,5 +1,42 @@
 source("Bovespa_CoDa_NFR.RData")
 
+#########################
+# Descriptive statistics
+#########################
+
+# 5-minute returns
+
+data.list = Bovespa_data.list
+N = length(data.list)
+ret = lapply(1:N, function(t){m = length(data.list[[t]]$Fech);
+sapply(1:(m-1), function(j) log(data.list[[t]]$Fech[j+1]) - log(data.list[[t]]$Fech[j]))})
+h.hat_5m = sapply(1:N, function(t) 2.34*sd(ret[[t]])*(length(ret[[t]])^(-(1/5))))
+m = 5001 # number of grid points (this is arbitrary)
+a = min(sapply(1:N, function(ik) min(ret[[ik]])))
+b = max(sapply(1:N, function(ik) max(ret[[ik]])))
+u = seq(from = a, to = b, length = m)
+
+# Interval length
+du = u[2] - u[1]
+
+Y = sapply(1:N, function(t) density(ret[[t]], bw = h.hat_5m[t], kernel = 'epanechnikov', from = a, to = b, n = m)$y)
+# correcting to ensure integral Y_t du = 1
+for(t in 1:N)
+{
+    Y[,t] = Y[,t]/(sum(Y[,t]) * du)
+}
+
+Y_selected = Y[,c(which(date=="09/02/2010"),
+                  which(date=="29/10/2009"),
+                  which(date=="30/10/2009"))]
+
+# plot
+
+matplot(u, Y_selected, type = "l", ylab = "Density", xlab = "Grid point")
+legend("topright", c("09/02/2010", "29/10/2009", "30/10/2009"), col = 1:3, lty = 1:3, cex = 0.8)
+
+# Bayes NW method
+        
 Bovespa_CoDa_NFR <- function(data.list, band_choice = c("Silverman", "DPI"), kernel = c("gaussian", "epanechnikov"))
 {
     kernel = match.arg(kernel)
@@ -169,5 +206,42 @@ Bovespa_KLdiv_rw_summary_DPI_epan = round(sum(colMeans(Bovespa_DPI_KLdiv_rw_epan
 
 c(Bovespa_KLdiv_rw_summary_epan, Bovespa_JSdiv_rw_summary_epan,
   Bovespa_KLdiv_rw_summary_DPI_epan, Bovespa_JSdiv_rw_summary_DPI_epan)
+
+#####################
+# comparison of KLDs
+#####################
+
+# Horta-Ziegelman
+
+Bovespa_compar_summary <- cbind(rowMeans(Bovespa_KLdiv_Horta_Ziegelman_epan),
+
+# LQT
+
+rowMeans(Bovespa_KLdiv_lqd_arima_epan),
+
+# CoDa
+
+rowMeans(Bovespa_KLdiv_CoDa_epan),
+
+# CoDa no normalization
+
+rowMeans(Bovespa_KLdiv_CoDa_epan_norm),
+
+# skew-t distribution
+
+rowMeans(Bovespa_KLdiv_skew_t_epan),
+
+# CoDa NFR
+
+rowMeans(Bovespa_KLdiv_CoDa_NFR_Silverman_epan),
+
+# RW
+
+rowMeans(Bovespa_KLdiv_rw_epan))
+
+rownames(Bovespa_compar_summary) = 1:102
+colnames(Bovespa_compar_summary) = c("HZ", "LQDT", "CoDa normalised", "CoDa", "Skewed-t", "Bayes NW", "random walk")
+
+boxplot(Bovespa_compar_summary, ylab = "KLD", xlab = "Method", notch = FALSE, outline = FALSE)
 
                    
