@@ -24,3 +24,9 @@ Nonparametric density-on-density regression in Bayes Hilbert space
 11. Bovespa_returns_data: Bovespa return density forecasting, same data set has previously been analysed in Kokoszka et al. (2019, IJF)
 
 12. US_LT_density.R: Age-specific life-table death counts in the United States
+
+# order of loading files
+
+1. source("load_packages.R")
+2. source("CoDa_NFR.R")
+3. source("CoDa_PCA.R")
