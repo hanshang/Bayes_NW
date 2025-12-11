@@ -7,10 +7,9 @@ source("LQDT_FPCA.R")
 # read data
 ############
 
-# set up a working directory
+# set up a local working directory where data are housed
 
-dir = "~/Dropbox/Todos/Nonparametric functional regression for a time series of density/"
-setwd(paste(dir, "/data", sep=""))
+dir = "~/"
 
 # read life-table death counts
 
