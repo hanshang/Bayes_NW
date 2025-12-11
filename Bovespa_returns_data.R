@@ -1,3 +1,5 @@
+source("Bovespa_CoDa_NFR.RData")
+
 Bovespa_CoDa_NFR <- function(data.list, band_choice = c("Silverman", "DPI"), kernel = c("gaussian", "epanechnikov"))
 {
     kernel = match.arg(kernel)
