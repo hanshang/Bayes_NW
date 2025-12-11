@@ -129,24 +129,12 @@ registerDoMC(10)
 result_Silverman_epan = foreach(iwk = 1:n_test) %dopar% Bovespa_ret_fun_CoDa_NFR(ik = iwk,
                                                         choice_band = "Silverman", choice_kernel = "epanechnikov")
 
-# run below
-
-result_DPI_epan = foreach(iwk = 1:n_test) %dopar% Bovespa_ret_fun_CoDa_NFR(ik = iwk,
-                                                        choice_band = "DPI", choice_kernel = "epanechnikov")
-
 Bovespa_CoDa_NFR_Silverman_epan = matrix(NA, 5001, n_test)
 for(ik in 1:n_test)
 {
     Bovespa_CoDa_NFR_Silverman_epan[,ik]     = result_Silverman_epan[[ik]]
     print(ik); rm(ik)
 }  
-
-Bovespa_CoDa_NFR_DPI_epan = matrix(NA, 5001, n_test)
-for(ik in 1:n_test)
-{
-    Bovespa_CoDa_NFR_DPI_epan[,ik]     = result_DPI_epan[[ik]]
-    print(ik); rm(ik)
-}
 
 ##############################
 # Kullback-Leibler divergence
@@ -163,23 +151,14 @@ for(ik in 1:n_test)
     colnames(Bovespa_CoDa_NFR_compar_epan) = c("True", "Estimate")
     Bovespa_KLdiv_CoDa_NFR_Silverman_epan[ik,] = as.numeric(KLdiv(Bovespa_CoDa_NFR_compar_epan, eps=1e-16))[2:3]
     rm(Bovespa_CoDa_NFR_compar_epan)
-    
-    ## DPI
-    
-    Bovespa_CoDa_NFR_DPI_compar_epan = cbind(Bovespa_test_density_epan_DPI[,ik], Bovespa_CoDa_NFR_DPI_epan[,ik])
-    colnames(Bovespa_CoDa_NFR_DPI_compar_epan) = c("True", "Estimate")
-    Bovespa_KLdiv_CoDa_NFR_DPI_epan[ik,] = as.numeric(KLdiv(Bovespa_CoDa_NFR_DPI_compar_epan, eps=1e-16))[2:3]
-    rm(Bovespa_CoDa_NFR_DPI_compar_epan)
     print(ik); rm(ik)
 }
 
 Bovespa_KLdiv_CoDa_NFR_Silverman_epan_summary     = round(sum(colMeans(Bovespa_KLdiv_CoDa_NFR_Silverman_epan)), 4)
-Bovespa_KLdiv_CoDa_NFR_DPI_epan_summary     = round(sum(colMeans(Bovespa_KLdiv_CoDa_NFR_DPI_epan)), 4)
-
 
 # random walk
 
-Bovespa_KLdiv_rw_epan = Bovespa_DPI_KLdiv_rw_epan = matrix(NA, n_test, 2)
+Bovespa_KLdiv_rw_epan = matrix(NA, n_test, 2)
 for(ik in 2:n_test)
 {
     ## Silverman epan
@@ -188,24 +167,11 @@ for(ik in 2:n_test)
     colnames(Bovespa_rw_compar) = c("True", "Estimate")
     Bovespa_KLdiv_rw_epan[ik,] = as.numeric(KLdiv(Bovespa_rw_compar, eps=1e-16))[2:3]
     rm(Bovespa_rw_compar)
-    
-    ## DPI epan
-    
-    # KLD
-    
-    Bovespa_rw_compar = cbind(Bovespa_test_density_epan_DPI[,ik], Bovespa_test_density_epan_DPI[,(ik-1)])
-    colnames(Bovespa_rw_compar) = c("True", "Estimate")
-    Bovespa_DPI_KLdiv_rw_epan[ik,] = as.numeric(KLdiv(Bovespa_rw_compar, eps=1e-16))[2:3]
-    rm(Bovespa_rw_compar)
     print(ik); rm(ik)
 }
 
 round(colMeans(Bovespa_KLdiv_rw[2:n_test,]), 4) # 0.1912 0.1977
 Bovespa_KLdiv_rw_summary_epan = round(sum(colMeans(Bovespa_KLdiv_rw_epan[2:n_test,])), 4)
-Bovespa_KLdiv_rw_summary_DPI_epan = round(sum(colMeans(Bovespa_DPI_KLdiv_rw_epan[2:n_test,])), 4)
-
-c(Bovespa_KLdiv_rw_summary_epan, Bovespa_JSdiv_rw_summary_epan,
-  Bovespa_KLdiv_rw_summary_DPI_epan, Bovespa_JSdiv_rw_summary_DPI_epan)
 
 #####################
 # comparison of KLDs
