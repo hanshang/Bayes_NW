@@ -209,4 +209,3 @@ colnames(Bovespa_compar_summary) = c("HZ", "LQDT", "CoDa normalised", "CoDa", "S
 
 boxplot(Bovespa_compar_summary, ylab = "KLD", xlab = "Method", notch = FALSE, outline = FALSE)
 
-                   
