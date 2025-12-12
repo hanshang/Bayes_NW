@@ -255,3 +255,27 @@ lqd_fun_HS <- function(data, fh, var_prop = 0.85, fmethod, adj_const)
                 female_dens_forecast = female_dens_fore_norm * const,
                 c = c, c_fore = c_fore, lqd = lqd, lqd_fore = den_fore))
 }
+
+# compute distance between two densities
+
+density_dist <- function(d1, d2, Grid)
+{
+    Positive = (d1 > 1e-6) & (d2 > 1e-6)
+    Grid = Grid[Positive]
+    d1 = d1[Positive]
+    d2 = d2[Positive]
+    grid.size=length(Grid)
+    first_integral=c()
+    for(t in 1:grid.size){
+      first_integral[t]=trapz(Grid,(log(d1/d1[t])-log(d2/d2[t]))^2)
+    }
+    return(trapz(Grid,first_integral)/2)
+}
+
+# find mode
+
+getmode <- function(v)
+{
+    uniqv <- unique(v)
+    uniqv[which.max(tabulate(match(v, uniqv)))]
+}
