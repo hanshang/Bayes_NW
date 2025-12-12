@@ -1,4 +1,4 @@
-source("Bovespa_CoDa_NFR.RData")
+source("Bovespa_Bayes_NW.RData")
 
 #########################
 # Descriptive statistics
