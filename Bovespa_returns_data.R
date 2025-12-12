@@ -208,4 +208,3 @@ rownames(Bovespa_compar_summary) = 1:102
 colnames(Bovespa_compar_summary) = c("HZ", "LQDT", "CoDa normalised", "CoDa", "Skewed-t", "Bayes NW", "random walk")
 
 boxplot(Bovespa_compar_summary, ylab = "KLD", xlab = "Method", notch = FALSE, outline = FALSE)
-
