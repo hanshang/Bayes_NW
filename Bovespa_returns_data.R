@@ -1,4 +1,4 @@
-source("Bovespa_Bayes_NW.RData")
+load("Bovespa_Bayes_NW.RData")
 
 #########################
 # Descriptive statistics
