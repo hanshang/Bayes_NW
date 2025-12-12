@@ -21,7 +21,7 @@ Nonparametric density-on-density regression in Bayes Hilbert space
 
 10. d-on-d_simulation.html: R markdown file for simulation DGP
 
-11. Bovespa_CoDa_NFR.RData: five existing method, proposed Bayes NW estimator, benchmark random walk
+11. Bovespa_Bayes_NW.RData: five existing method, proposed Bayes NW estimator, benchmark random walk
 
 12. Bovespa_returns_data.R: Bovespa return density forecasting, same data set has previously been analysed in Kokoszka et al. (2019, IJF)
 
@@ -33,5 +33,5 @@ Nonparametric density-on-density regression in Bayes Hilbert space
 2. source("save_function.R")
 3. source("CoDa_NFR.R")
 4. source("CoDa_PCA.R")
-5. load("Bovespa_CoDa_NFR.RData")
+5. load("Bovespa_Bayes_NW.RData")
 6. ...
