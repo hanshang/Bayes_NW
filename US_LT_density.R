@@ -1,7 +1,5 @@
-source("semimetric.R")
-source("CoDa_NFR.R")
-source("CoDa_recon.R")
-source("LQDT_FPCA.R")
+source("auxiliary.R")
+source("lqd_fun.R")
 
 ############
 # read data
