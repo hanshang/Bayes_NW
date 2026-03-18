@@ -44,7 +44,7 @@ The R script files in the `R Code` folder should be used in the following order:
 9. file.edit("US_LT_density.R")
 
 ## Contact
-arXiv link: [https://arxiv.org/abs/2507.04303](https://arxiv.org/abs/2507.04303)
+arXiv link: [https://arxiv.org/abs/2503.22904](https://arxiv.org/abs/2503.22904)
 
 Frederic Ferraty - ferraty@math.univ-toulouse.fr
 
