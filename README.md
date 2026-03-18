@@ -6,7 +6,7 @@
     <img src="Toulouse.png" alt="Logo" width="200" height="200">    
   </a>
 
-<h3 align="center">Density-valued time series: 
+<h3 align="left">Density-valued time series: 
   <br />
   Nonparametric density-on-density regression</h3>
 
