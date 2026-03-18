@@ -1,5 +1,18 @@
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/hanshang/CLR_vs_CDF_transformation">
+    <img src="MQ.png" alt="Logo" width="400" height="400">
+    <img src="Toulouse.png" alt="Logo" width="200" height="200">    
+  </a>
+
+<h3 align="center">Density-valued time series: 
+  <br />
+  Nonparametric density-on-density regression</h3>
+
+
 # Bayes_NW
-Nonparametric density-on-density regression in Bayes Hilbert space
+
 
 1. CoDa_NFR.R: centered log-ratio transformation + nonparametric functional regression for modeling and forecasting transformed data
 
