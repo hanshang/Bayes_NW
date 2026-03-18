@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/hanshang/CLR_vs_CDF_transformation">
-    <img src="MQ.png" alt="Logo" width="200" height="200">
+    <img src="MQ.png" alt="Logo" width="250" height="250">
     <img src="Toulouse.png" alt="Logo" width="200" height="200">    
   </a>
 
